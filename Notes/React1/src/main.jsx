@@ -7,13 +7,12 @@ const iranDIv = document.querySelector(".Myclaas")
 
 function tick(){
   const element = (
-    <>
       <div>
         <h1>hello my friend</h1>
         <h2>
           {new Date().toLocaleTimeString()}
         </h2>
-    </div></>
+    </div>
   )
 
   const test = (
