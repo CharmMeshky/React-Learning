@@ -1,5 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './index.css'
+
+const myRoot = document.getElementById('root')
+const iranDIv = document.querySelector(".Myclaas")
 
 function tick(){
   const element = (
@@ -11,7 +15,16 @@ function tick(){
         </h2>
     </div></>
   )
-  createRoot(document.getElementById('root')).render(element)
+
+  const test = (
+    <><div>
+      <h1>inja iran ast ...</h1>
+    </div>
+    </>
+  )
+
+  createRoot(myRoot).render(element)
+  createRoot(iranDIv).render(test)
 }
 
 setInterval(() => {
