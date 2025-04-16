@@ -17,4 +17,4 @@ const myFunction = () => {
   createRoot(root).render(element)
 }
 
-myFunction()
+myFunction() 
