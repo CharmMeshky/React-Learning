@@ -4,3 +4,17 @@ import './index.css'
 
 const root = document.getElementById('root')
 
+const myFunction = () => {
+  const x = 10
+  const element = (
+    <>
+      <div className="folder">
+         {x}
+      </div>
+    </>
+  )
+
+  createRoot(root).render(element)
+}
+
+myFunction()
