@@ -9,9 +9,6 @@ export class Timer extends React.Component {
       sec: 0,
       min: 0,
       hour: 0,
-      ziroSec: 0,
-      ziroMin: 0,
-      ziroHour: 0,
       isStarted: false,
     };
   }
