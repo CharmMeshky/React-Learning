@@ -7,7 +7,7 @@ import { Timer } from "./Timer";
 
 const myRoot = document.getElementById("root");
 
-//PROPS
+
 
 class Show extends React.Component {
   constructor() {
@@ -16,14 +16,7 @@ class Show extends React.Component {
       title: "hello my dear friend",
     };
 
-    // this.newTitle = this.newTitle.bind(this)
   }
-
-//   newTitle(){
-//      this.setState({
-//       title : "to click kardy..."
-//   })
-// }
 
   render() {
     return (
@@ -38,6 +31,4 @@ class Show extends React.Component {
   }
 }
 
-// setInterval(() => {
 createRoot(myRoot).render(<Show />);
-// }, 1000);
