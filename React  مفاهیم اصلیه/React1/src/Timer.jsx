@@ -1,5 +1,6 @@
 import "./index.css";
 import React from "react";
+import { List } from "./Timelist";
 let intervalSeted;
 
 export class Timer extends React.Component {
@@ -11,6 +12,7 @@ export class Timer extends React.Component {
       hour: 0,
       isStarted: false,
       isClicked: false,
+      time: "",
     };
   }
 
@@ -37,7 +39,7 @@ export class Timer extends React.Component {
       sec: 0,
       min: 0,
       hour: 0,
-      time:"",
+      time: "",
     });
   };
 
@@ -55,31 +57,37 @@ export class Timer extends React.Component {
     }
   }
 
- getTime = () => {
-  let h = this.state.hour
-  let m = this.state.min;
-  let s = this.state.sec;
-  let nowTime = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s} `
-  this.setState({
-  time: nowTime,
-  isClicked: !this.state.isClicked,
- })
- }
-
-  render() {
-    let h = this.state.hour
+  getTime = () => {
+    let h = this.state.hour;
     let m = this.state.min;
     let s = this.state.sec;
-    const title = this.props.title
-    const isLight = this.props.isLight 
+    let nowTime = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
+      s > 9 ? s : "0" + s
+    } `;
+    this.setState({
+      time: nowTime,
+      isClicked: !this.state.isClicked,
+    });
+  };
+
+  render() {
+    let h = this.state.hour;
+    let m = this.state.min;
+    let s = this.state.sec;
+    const title = this.props.title;
+    const isLight = this.props.isLight;
     const myStyle = {
-      color: isLight ? "black" : "white", 
-      backgroundColor : isLight ? "white" : "black", 
-      border : "2px solid"
-    }
+      color: isLight ? "black" : "white",
+      backgroundColor: isLight ? "white" : "black",
+      border: "2px solid",
+    };
+    const styleShadow = { boxShadow: isLight ? "0px 0px 15px 10px black" : "" };
+
     return (
       <>
-        <button className="date" style={{boxShadow: isLight? "0px 0px 15px 10px black" : ""}} onClick={this.getTime}>{`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s} `}</button>
+        <button className="date" style={styleShadow} onClick={this.getTime}>{`${
+          h > 9 ? h : "0" + h
+        } : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s} `}</button>
         <div className="buttons">
           <button className="start" onClick={this.cornometr}>
             start
@@ -90,16 +98,19 @@ export class Timer extends React.Component {
           <button className="reset" onClick={this.resetTime}>
             reset
           </button>
-          <button className="test" onClick={this.props.setBackground} style={myStyle}>{title}</button>
+          <button
+            className="test"
+            onClick={this.props.setBackground}
+            style={myStyle}
+          >
+            {title}
+          </button>
         </div>
-        <h4 style={{display: this.state.isClicked?"inline-block" :"none"}}>{this.state.time}</h4>
+        <h4 style={{display: this.state.isClicked ? "inline-block" : "none"}}>{this.state.time}</h4>
+        <List>
+          {this.state.time}
+        </List>
       </>
     );
   }
 }
-
-
-
-
-
-
