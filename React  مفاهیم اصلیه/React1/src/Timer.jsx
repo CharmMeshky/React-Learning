@@ -1,6 +1,7 @@
 import "./index.css";
 import React from "react";
 import { List } from "./Timelist";
+
 let intervalSeted;
 
 export class Timer extends React.Component {
@@ -12,25 +13,25 @@ export class Timer extends React.Component {
       hour: 0,
       isStarted: false,
       isClicked: false,
-      time: "",
+      time: [],
     };
   }
 
   cornometr = () => {
-    if (this.state.isStarted == false)
+    if (this.state.isStarted === false)
       intervalSeted = setInterval(() => {
-        this.setState({
-          sec: this.state.sec + 1,
+        this.setState(prevState => ({
+          sec: prevState.sec + 1,
           isStarted: true,
-        });
+        }));
       }, 1000);
   };
 
   stopTime = () => {
     clearInterval(intervalSeted);
-    this.setState({
+    this.setState(({
       isStarted: false,
-    });
+    }));
   };
 
   resetTime = () => {
@@ -39,21 +40,21 @@ export class Timer extends React.Component {
       sec: 0,
       min: 0,
       hour: 0,
-      time: "",
+      time: [],
     });
   };
 
   componentDidUpdate() {
-    if (this.state.sec == 60) {
-      this.setState({
+    if (this.state.sec === 60) {
+      this.setState(prevState => ({
         sec: 0,
-        min: this.state.min + 1,
-      });
-    } else if (this.state.min == 60) {
-      this.setState({
+        min: prevState.min + 1,
+      }));
+    } else if (this.state.min === 60) {
+      this.setState(prevState => ({
         min: 0,
-        hour: this.state.hour + 1,
-      });
+        hour: prevState.hour + 1,
+      }));
     }
   }
 
@@ -64,10 +65,11 @@ export class Timer extends React.Component {
     let nowTime = `${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
       s > 9 ? s : "0" + s
     } `;
-    this.setState({
-      time: nowTime,
-      isClicked: !this.state.isClicked,
-    });
+
+    this.setState(prevState => ({
+      time: [nowTime, ...prevState.time],
+      isClicked: !prevState.isClicked,
+    }));
   };
 
   render() {
@@ -106,7 +108,6 @@ export class Timer extends React.Component {
             {title}
           </button>
         </div>
-        <h4 style={{display: this.state.isClicked ? "inline-block" : "none"}}>{this.state.time}</h4>
         <List>
           {this.state.time}
         </List>

@@ -67,7 +67,7 @@ button{
   text-transform: uppercase;
   letter-spacing: 1px;
   outline: none;
-  border: none; 
+  border: none;
   transition: 0.3s all;
   cursor: pointer;
 }
@@ -99,11 +99,33 @@ button:hover{
   color: black;
 }
 
-h4{
+.ss{
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+
+.h4{
   color: var(--color);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  position: absolute;
-  bottom: 40px;
+  max-width: 300px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
+
+.time-item {
+  margin: 5px 5px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.time-item:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.02);
+}
+

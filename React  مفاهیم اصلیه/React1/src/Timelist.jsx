@@ -1,9 +1,15 @@
-export const List = (props) => {
-    return(
-        <div className="h4">
-            {console.log(props.children)}
-        </div>
-    )
-}
+export const List = ({ children }) => {
+  if (!Array.isArray(children)) return null;
 
-
+  return (
+    <div className="ss">
+      <div className="h4">
+        {children.map((time, index) => (
+          <div key={index} className="time-item">
+            {time}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
