@@ -10,33 +10,29 @@ export const List = () => {
     const listTime = document.querySelector(".list-time");
     
     const handleClick = (e) => {
-      if (e.target.classList.contains('time-item')) {
-        e.target.remove();
+      if (e.target.classList.contains('hover')) {
+        e.target.parentElement.remove()
       }
     };
 
     listTime.addEventListener("click", handleClick);
 
-    // Cleanup function
     return () => {
       listTime.removeEventListener("click", handleClick);
     };
-  }, []); // Empty dependency array means this runs only once on mount
+  }, []);
 
   return (
     <div className="main">
-      <div className="list-time">
+      <div className="list-time ">
         {Time.time.map((time, index) => (
-          <div
-            key={index}
-            className="time-item"
+          <div className="time-item"  key={index}
             style={{
-              backgroundColor: Time.isLight
-                ? "black"
-                : "rgba(123, 123, 123, 0.5)",
-            }}
-          >
-            {time}
+              backgroundColor: Time.isLight ? "black" : "rgba(123, 123, 123, 0.5)"}}
+              >
+            <div className="hover">
+              {time} 
+            </div>
           </div>
         ))}
       </div>
