@@ -1,0 +1,6 @@
+@font-face {
+    font-family: Amiry;
+    src:
+     url(Font/Amiri-Regular.woff) format('woff'),
+      url(Font/Amiri-Regular.woff2) format('woff2');
+}
