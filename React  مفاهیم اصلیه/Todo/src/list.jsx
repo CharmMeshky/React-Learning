@@ -53,8 +53,9 @@ export const List = (props) => {
     }
   }
 
+  if(props.list.length){
   return (
-    <div className="list">
+          <div className="list">
       <ul>
         {props.list.map((element, index) => (
           <li key={index}>
@@ -74,5 +75,10 @@ export const List = (props) => {
         ))}
       </ul>
     </div>
-  );
+  );}
+  else{
+    return(
+    <h4 className="khali">هیچ کاری وارد نشده است</h4>
+    )
+  }
 };

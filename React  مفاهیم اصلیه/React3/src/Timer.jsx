@@ -41,7 +41,6 @@ export class Timer extends React.Component {
     const listTime = [... document.querySelector(".list-time").childNodes];
     listTime.forEach((list) => {
       list.remove()
-
     })
     
     this.setState({
