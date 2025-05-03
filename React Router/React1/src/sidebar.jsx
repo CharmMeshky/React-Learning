@@ -6,7 +6,7 @@ const Sidebar = () => {
   const {clickMenu} = useContext(menuData)
 
   return (
-    <div className={`sidebar ${clickMenu? "clicked-sidebar" : "not-clicked-sidebar"}`} style={{display:clickMenu? "inline-block" : "none"}} >
+    <div className={`sidebar ${clickMenu? "clicked-sidebar" : "not-clicked-sidebar"}`}>
       <div className="img">
         <img src={profileImage} alt="Profile" />
       </div>
