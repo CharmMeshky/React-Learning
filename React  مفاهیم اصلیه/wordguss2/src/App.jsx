@@ -11,6 +11,7 @@ class App extends Component{
     }
 
     render(){
+        {console.log(this.input)}
         return(
             <div className="app">
                 <Titr/>

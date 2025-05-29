@@ -1,72 +1,39 @@
-// import { createRef, PureComponent,  } from "react";
-// import "./index.css";
+import { Component, PureComponent, createRef } from "react";
 
-// class Form extends PureComponent {
-//   constructor() {
-//     super();
-//     this.state = {
-//         name : ""
-//     }
-//     this.counter = 0
-//     this.input = createRef()
-//   }
+class Form extends Component{
 
-//   handleName = ()=> {
-//     this.setState({
-//         name : this.input.current.value
-//     })
-//   }
-
-//   componentDidMount(){
-//     this.input.current.focus()
-//   }
-
-//   render() {
-//     return (
-//       <>
-//         <input ref={this.input} type="text"></input>
-//         <div className="buttons">
-//           <button onClick={() => {this.input.current.value = ""}}>مخفی</button>
-//           <button onClick={this.handleName}>ثبت</button>
-//         </div>
-//         <span>{this.counter++}</span>
-//       </>
-//     );
-//   }
-// }
-
-// export default Form;
-
-import { useEffect, useRef, useState } from "react";
-import "./index.css";
-
-let counter = 0
-
-const Form = () => {
-
-    const [name,setName] = useState()
-    const input = useRef()
-
-    const handleName = ()=> {
-        setName(input.current.value)
+    constructor(){
+        super()
+        this.state = {
+            name : "",
+        }
+        this.counter = 0
+        this.Input = createRef()
     }
 
-    useEffect(() => {
-        input.current.focus()
-    })
+    handleName = () => {
+        this.setState(
+            {
+                name : this.Input.current.value
+            }
+        )
+    };
 
-    return (
-        <>
-        {/* {console.log(input.current.value)} */}
-          <input ref={input} type="text"></input>
-          <div className="buttons">
-            <button onClick={() => {input.current.value = ""}}>مخفی</button>
-            <button onClick={handleName}>ثبت</button>
-          </div>
-          <span>{counter++}</span>
-        </>
-      );
+    render(){
+        return (
+            <>
+                <input ref={this.Input} type="text"></input>
+                <div className="buttons">
+                    <button onClick={() => {this.Input.current.value = ""; }}>مخفی</button>
+                    <button onClick={this.handleName}>ثبت</button>
+                </div>
+                <span>{this.counter++}</span>
+            </>
+        );
+    }
+};
 
-}
+export default Form;
 
-export default Form
+
+// useImperativeHandle
