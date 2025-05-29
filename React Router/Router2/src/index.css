@@ -57,6 +57,9 @@ ul{
 
 .menu-btn{
     direction: rtl;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .menu{
@@ -65,6 +68,7 @@ ul{
     cursor: pointer;
     transition: ease-out all 0.4s;
     position: absolute;
+    border-radius: 5px;
 }
 
 .menu:hover{
@@ -102,19 +106,21 @@ ul{
 }
 
 .add{
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     transition: ease-out all 0.4s;
     transform: translateY(-10px);
+    background-color: darkgreen;
+    color: black;
+    border-radius: 5px;
+    transform: translateY(10px);
 }
 
 .add:hover{
-    background-color: black;
     color: white;
-    border-radius: 50%;
 }
 
-.content table{
+.app table{
     width: 90%;
     margin: 0 auto;
     background-color: white;
@@ -123,15 +129,15 @@ ul{
 
 .table{
     width: 100%;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
-.content th{
+.app th{
     cursor: default;
     font-size: 15px;
 }
 
-.content td{
+.app td{
     width: 25%;
     padding: 5px;
     cursor: default;
@@ -140,7 +146,7 @@ ul{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.content th,.content table{
+.app th,.app table{
     border: 2px solid black;
     border-collapse: collapse;
 }
@@ -194,13 +200,15 @@ img{
 }
 
 .sidebar ul li a:hover{
-    color: black;
+    color: blue;
     font-weight: bold;
 }
 
 h4{
     font-size: 2rem;
     text-align: center;
+    margin: 0;
+    padding-top: 10px;
 }
 
 .gallery,.post,.todo{
@@ -209,11 +217,11 @@ h4{
 }
 
 @media (min-width:720px){
-    .content th{
+    .app th{
         font-size: 17px;
     }
 
-    .content td{
+    .app td{
         font-size: 14px;
     }
 
@@ -249,7 +257,7 @@ h4{
         right: 180px;
     }
 
-    .sidebar ul li a{
+    .sidebar ul li Link{
         font-size: 19px;
     }
 
@@ -261,7 +269,7 @@ h4{
 }
 
 @media(min-width:1100px){
-    .sidebar ul li a{
+    .sidebar ul li Link{
         font-size: 22px;
     }
 
@@ -302,11 +310,11 @@ h4{
         width: 38%;
     }
 
-    .content th{
+    .app th{
         font-size: 19px;
     }
 
-    .content td{
+    .app td{
         font-size: 16px;
     }
 }
