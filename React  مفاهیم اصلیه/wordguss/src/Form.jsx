@@ -1,6 +1,6 @@
-import { Component, PureComponent, createRef } from "react";
+import { PureComponent, createRef } from "react";
 
-class Form extends Component{
+class Form extends PureComponent{
 
     constructor(){
         super()
