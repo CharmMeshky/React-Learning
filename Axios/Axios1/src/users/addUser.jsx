@@ -1,8 +1,7 @@
 import { useState } from "react";
 import {useLocation, useNavigate, useParams } from "react-router";
-import Swal from "sweetalert2";
 import { Outlet } from "react-router";
-import axios from 'axios'
+import { add, editServise } from "./userServise";
 
 const Add = () => {
 
@@ -25,26 +24,10 @@ const Add = () => {
   const handledata = (event) => {
     event.preventDefault();
     if(editData){
-      axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, data)
-      .then((res) => {
-        console.log(res)
-        Swal.fire({
-          title: "ویرایرش با موفقیت انجام شد",
-          icon: "success",
-          draggable: true
-        });
-      })
+     editServise(data,id)
     }
     else{
-      axios.post('https://jsonplaceholder.typicode.com/users', data)
-      .then((res) => {
-        console.log(res)
-        Swal.fire({
-          title: "کاربر با موفقیت اضافه شد",
-          icon: "success",
-          draggable: true
-        });
-      })
+      add(data)
     }
     navigate('/users')
   };

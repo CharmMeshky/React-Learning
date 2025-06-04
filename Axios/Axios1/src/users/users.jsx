@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import { deleteServise, getUser } from "./userServise";
 
 // let baseUser = []
 
@@ -12,15 +12,7 @@ const Users = () => {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        setUser(res.data),
-        setBaseUser(res.data)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getUser(setUser, setBaseUser);
   }, []);
 
   const searchHandle = (search) => {
@@ -42,29 +34,7 @@ const Users = () => {
       confirmButtonText: "ok ",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`https://jsonplaceholder.typicode.com/users/${idUser}`)
-          .then((res) => {
-            console.log(res);
-
-            if (res.status === 200) {
-              const newUsers = users.filter((user) => {
-                return user.id !== idUser;
-              });
-              setUser(newUsers);
-              Swal.fire({
-                title: "! حذف شد",
-                text: "شما این کاربر را حذف کردید",
-                icon: "success",
-              });
-            } else {
-              Swal.fire({
-                title: "Eror",
-                text: "! عملیات با موفقیت انجام نشد",
-                icon: "warning",
-              });
-            }
-          });
+        deleteServise(users, setUser, idUser);
       } else {
         Swal.fire({
           title: "شما از حذف کاربر منصرف شدید",
