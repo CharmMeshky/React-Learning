@@ -1,8 +1,12 @@
 import { createContext } from "react";
 
-const menuData = createContext({
+export const menuData = createContext({
     clickMenu : Boolean,
     setMenu : () => {}
 })
 
-export default menuData
+export const countData = createContext({
+    count: Number,
+    handleClickButton: () => {},
+    handleMouseCount: () => {},
+})

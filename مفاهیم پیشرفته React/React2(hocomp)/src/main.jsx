@@ -3,10 +3,12 @@ import { createRoot } from "react-dom/client";
 import { useState } from "react";
 import { BrowserRouter } from "react-router";
 // eslint-disable-next-line no-unused-vars
-import menuData from "./context";
+import { menuData } from "./context";
 import App from "./App";
 import Sidebar from "./sidebar";
 import "./index.css";
+
+//AMozeshe component haye sathe bala
 
 const root = document.getElementById("root");
 
