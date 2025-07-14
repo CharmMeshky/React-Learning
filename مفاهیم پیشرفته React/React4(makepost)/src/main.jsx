@@ -8,22 +8,29 @@ import App from "./App";
 import Sidebar from "./sidebar";
 import "./index.css";
 import Portal from "./Modal/Portal";
-
+// eslint-disable-next-line no-unused-vars
+import { commentsClick } from "./context";
 //AMozeshe component haye sathe bala
 
 const root = document.getElementById("root");
 
 const Main = () => {
   const [clickMenu, setMenu] = useState(false);
+  const [clickComments, setClickComments] = useState({
+        isClicked:false,
+        number:null
+    },);
 
   return (
     <BrowserRouter>
       <div className="main">
-        <Portal/>
-        <menuData.Provider value={{ clickMenu, setMenu }}>
-          <App />
-          <Sidebar />
-        </menuData.Provider>
+        <commentsClick.Provider value={{clickComments,setClickComments}}>
+          <menuData.Provider value={{ clickMenu, setMenu }}>
+            <Portal />
+            <App />
+            <Sidebar />
+          </menuData.Provider>
+        </commentsClick.Provider>
       </div>
     </BrowserRouter>
   );

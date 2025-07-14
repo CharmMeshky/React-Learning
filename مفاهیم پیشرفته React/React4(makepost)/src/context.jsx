@@ -10,3 +10,11 @@ export const countData = createContext({
     handleClickButton: () => {},
     handleMouseCount: () => {},
 })
+
+export const commentsClick = createContext({
+    clickComments: {
+        isClicked:Boolean,
+        number:Number
+    },
+    setClickComments: () => {}
+})

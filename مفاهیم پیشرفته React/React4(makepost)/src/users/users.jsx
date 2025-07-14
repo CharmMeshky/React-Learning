@@ -60,7 +60,7 @@ const Users = (props) => {
       </div>
       {users.length ? (
         <div className="table">
-          <table>
+          <table className="table-w">
             <thead>
               <tr>
                 <th>عملیات</th>

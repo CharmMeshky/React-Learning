@@ -78,7 +78,8 @@ ul {
   border-radius: 50%;
 }
 
-.content h1 ,.post h1 {
+.content h1,
+.post h1 {
   margin: 0;
   padding-top: 10px;
   font-size: 25px;
@@ -86,8 +87,8 @@ ul {
   text-align: center;
 }
 
-.post{
-    overflow-y: auto;
+.post {
+  overflow-y: auto;
 }
 
 .search {
@@ -134,15 +135,15 @@ ul {
 
 .table {
   width: 100%;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
-.app th {
+th {
   cursor: default;
   font-size: 15px;
 }
 
-.app td {
+td {
   width: 25%;
   padding: 5px;
   cursor: default;
@@ -151,7 +152,7 @@ ul {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.post table .paragraf{
+.post table .paragraf {
   text-align: start;
 }
 
@@ -159,8 +160,8 @@ ul {
   border: 1px solid rgb(60, 59, 59);
 }
 
-.app th,
-.app table {
+.table-w th,
+.table-w {
   border: 2px solid black;
   border-collapse: collapse;
 }
@@ -179,13 +180,13 @@ ul {
   color: rgb(0, 0, 0);
 }
 
-.forum{
+.forum {
   font-size: 24px;
   padding-left: 4px;
   cursor: pointer;
 }
 
-.forum:hover{
+.forum:hover {
   opacity: 0.6;
 }
 
@@ -267,7 +268,8 @@ img {
     font-size: 14px;
   }
 
-  .content h1, .post h1 {
+  .content h1,
+  .post h1 {
     font-size: 28px;
     font-family: "Vazirmatn";
     font-weight: 400;
@@ -320,7 +322,8 @@ img {
     width: 270px;
   }
 
-  .content h1 ,.post h1 {
+  .content h1,
+  .post h1 {
     font-size: 2.2rem;
   }
 
@@ -406,7 +409,7 @@ form {
   border-radius: 5px;
   border: 1px solid gray;
   padding-right: 5px;
-  font-family: Arial, Helvetica, sans-serif ;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
@@ -519,4 +522,96 @@ span {
 .post {
   width: 100%;
   height: 100vh;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.modal-box {
+  width: 100%;
+  margin-top: 45px;
+  transition: all 0.3s;
+  position: absolute;
+}
+
+.text-modal {
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+  min-height: 270px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.t-comment {
+  width: 100%;
+  background-color: white;
+  direction: rtl;
+  border: 2px solid rgb(255, 255, 255);
+  border-collapse: collapse;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.table{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.t-comment th{
+  border: 2px solid rgb(255, 255, 255);
+  border-collapse: collapse;
+}
+
+.t-comment thead tr {
+  height: 30px;
+  font-family: "Vazirmatn";
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.d {
+  width: 8%;
+}
+
+.t-comment tbody tr {
+  font-weight: 500;
+  background-color: gray;
+}
+
+.table h1{
+  text-align: center;
+  font-size: 2rem;
+  font-family:'Vazirmatn' ;
+}
+
+.close-modal{
+  margin-top: 25px;
+  background-color: rgb(255, 31, 31);
+  padding: 7px 12px;
+  border: 2px solid black;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  font-family: "Vazirmatn";
+  /* font-weight: bold; */
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.close-modal:hover{
+  opacity: 0.6;
+}
+
+.pation{
+  text-align: center;
+  margin-top: 50px;
+  color: red;
 }

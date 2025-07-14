@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePost, getPosts } from "./PostsServise";
+import { commentsClick } from "../context";
 
 const Post = () => {
   const nav = useNavigate();
+  const {clickComments,setClickComments} = useContext(commentsClick)
 
   const [searchValue, setSearchValue] = useState("");
   const [postsData, setPostsData] = useState();
-  const [clickComments, setClickComments] = useState(false)
   const [posts, setPosts] = useState({
     userId: "",
     id: "",
@@ -31,8 +32,8 @@ const Post = () => {
     deletePost(id, posts, setPosts);
   };
 
-  const handleComments = () => {
-    setClickComments(!clickComments)
+  const handleClickComments = (id) => {
+    setClickComments({number:id,isClicked:true})
   }
 
   return (
@@ -60,7 +61,7 @@ const Post = () => {
       </div>
       {posts.length ? (
         <div className="table">
-          <table>
+          <table className="table-w">
             <thead>
               <tr>
                 <th>عملیات</th>
@@ -94,7 +95,7 @@ const Post = () => {
                       >
                         <i className="material-icons edit">edit_square</i>
                       </Link>
-                      <i className="material-icons forum" onClick={handleComments}>forum</i>
+                      <i className="material-icons forum" onClick={() => handleClickComments(post.id)}>forum</i>
                     </div>
                   </td>
                   <td className="paragraf">{post.body}</td>
@@ -111,8 +112,7 @@ const Post = () => {
           <h1>{searchValue ? "نتیجه ای یافت نشد" : " ... لطفا صبر کنید"}</h1>
         </div>
       )}
-      <div className="modal" style={{display: clickComments ? "inline-block" :"none"}}>
-      </div>
+      <div className="modal" onClick={() => setClickComments({...clickComments,isClicked:false})} style={{display: clickComments.isClicked ? "inline-block" :"none"}}></div>
       </div>
   );
 };
